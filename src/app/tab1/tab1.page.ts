@@ -15,30 +15,33 @@ export class Tab1Page {
   listaVideos: IFilme[] = [
     {
       nome: 'Tom & Jerry',
-      lancamento: '11/02/2021',
-      duracao: '1h 41m',
-      classificacao: 73,
+      lancamento: '11/02/2021', duracao: '1h 41m', classificacao: 73,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9NvYyM8H6d5KAVGqpyFV9YPO5cU.jpg',
       generos: ['Comédia', 'Família', 'Animação'],
-      pagina: '/mortal-kombat'
     },
     {
       nome: 'Liga da Justiça de Zack Snyder (2021)',
-      lancamento: '18/03/2021',
-      duracao: '4h 2m',
-      classificacao: 85,
+      lancamento: '18/03/2021', duracao: '4h 2m', classificacao: 85,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ArWn6gCi61b3b3hclD2L0LOk66k.jpg',
       generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica'],
-      pagina: '/liga-justica'
-
     },
     {
       nome: 'The Pink Panther (1993)',
-      lancamento: '31/01/2003',
-      duracao: '22m',
-      classificacao: 67,
+      lancamento: '31/01/2003', duracao: '22m', classificacao: 67,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eDDb0H7cimdNSXCIW2aKQQXrPzC.jpg',
       generos: ['Animação', 'Comédia']
+    },
+    {
+      nome: 'Mortal Kombat (2021)',
+      lancamento: '15/04/2021', duracao: '1h 50m', classificacao: 76,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6Wdl9N6dL0Hi0T1qJLWSz6gMLbd.jpg',
+      generos: ['Ação', 'Fantasia', 'Aventura']
+    },
+    {
+      nome: 'Godzilla vs. Kong (2021)',
+      lancamento: '01/04/2021', duracao: '1h 53m', classificacao: 81,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4bTShLVFnVKK31cowgjdAIZV84T.jpg',
+      generos: ['Ação', 'Drama', 'Ficção Científica']
     }
   ];
 

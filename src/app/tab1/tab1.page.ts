@@ -20,13 +20,20 @@ export class Tab1Page {
       generos:['Comédia', 'Família', 'Animação']
     },
     {
-
       nome: 'Liga da Justiça de Zack Snyder (2021)',
       lancamento:'18/03/2021',
       duracao: '4h 2m',
       classificacao: 85,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ArWn6gCi61b3b3hclD2L0LOk66k.jpg',
       generos:['Ação', 'Aventura', 'Fantasia', 'Ficção científica']
+    },
+    {
+      nome: 'The Pink Panther (1993)',
+      lancamento:'31/01/2003',
+      duracao: '22m',
+      classificacao: 67,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eDDb0H7cimdNSXCIW2aKQQXrPzC.jpg',
+      generos:['Animação', 'Comédia']
     }
   ];
 

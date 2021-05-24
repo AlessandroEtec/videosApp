@@ -1,4 +1,4 @@
-export interface IFilmes{
+export interface IFilme{
   nome: string;
   lancamento: string;
   duracao: string;

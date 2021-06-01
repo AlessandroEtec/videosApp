@@ -3,9 +3,7 @@ import { IListaFilmes } from './../models/IFilmeAPI.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, getError, catchError } from 'rxjs/operators';
-import { IFilmeApi } from '../models/IFilmeAPI.model';
-import { DH_NOT_SUITABLE_GENERATOR } from 'constants';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

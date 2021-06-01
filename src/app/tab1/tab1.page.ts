@@ -1,3 +1,5 @@
+import { IListaFilmes } from './../models/IFilmeAPI.model';
+import { FilmeService } from './../services/filme.service';
 import { DadosService } from './../services/dados.service';
 import { IFilme } from '../models/IFilme.model';
 import { Component } from '@angular/core';
@@ -11,7 +13,8 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  titulo = 'Vídeos App';
+  titulo = 'Filmes';
+  listaFilmes: IListaFilmes;
   listaVideos: IFilme[] = [
     {
       nome: 'Tom & Jerry',
@@ -49,11 +52,25 @@ export class Tab1Page {
     public alertController: AlertController,
     public toastController: ToastController,
     public dadosService: DadosService,
+    public filmeService: FilmeService,
     public route: Router
   ) { }
 
-  exibirFilme(filme: IFilme){
-    this.dadosService.guardarDados('filme',filme);
+  buscarFilmes(evento: any) {
+    const busca = evento.target.value;
+    if(busca && busca.trim()!=""){
+      this.filmeService.buscarFilmes(busca).subscribe(
+        dados => {
+          console.log(dados);
+          this.listaFilmes = dados;
+        }
+      );
+    }
+
+  }
+
+  exibirFilme(filme: IFilme) {
+    this.dadosService.guardarDados('filme', filme);
     this.route.navigateByUrl('dados-filme');
   }
 
@@ -79,6 +96,7 @@ export class Tab1Page {
 
     await alert.present();
   }
+
   async apresentarToast() {
     const toast = await this.toastController.create({
       message: 'Filme adicionado aos favoritos.',

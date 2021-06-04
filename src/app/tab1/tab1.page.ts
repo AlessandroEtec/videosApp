@@ -1,8 +1,10 @@
+import { IGenero } from './../models/IGenero.model';
+import { GeneroService } from './../services/genero.service';
 import { IFilmeApi, IListaFilmes } from './../models/IFilmeAPI.model';
 import { FilmeService } from './../services/filme.service';
 import { DadosService } from './../services/dados.service';
 import { IFilme } from '../models/IFilme.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -11,10 +13,11 @@ import { Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
   titulo = 'Filmes';
   listaFilmes: IListaFilmes;
+  generos: string[] = [];
   listaVideos: IFilme[] = [
     {
       nome: 'Tom & Jerry',
@@ -53,8 +56,20 @@ export class Tab1Page {
     public toastController: ToastController,
     public dadosService: DadosService,
     public filmeService: FilmeService,
+    public generoService: GeneroService,
     public route: Router
   ) { }
+
+  ngOnInit(){
+    this.generoService.buscarGeneros().subscribe(
+      (dados)=> {
+        console.log("Generos: ", dados.genres);
+        dados.genres.forEach(genero =>{
+          this.generos[genero.id] = genero.name;
+        });
+      }
+    );
+  }
 
   buscarFilmes(evento: any) {
     const busca = evento.target.value;
@@ -106,4 +121,6 @@ export class Tab1Page {
     });
     toast.present();
   }
+
+
 }

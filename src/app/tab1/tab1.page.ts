@@ -69,6 +69,7 @@ export class Tab1Page implements OnInit {
         });
       }
     );
+    this.dadosService.guardarDados('generos',this.generos);
   }
 
   buscarFilmes(evento: any) {

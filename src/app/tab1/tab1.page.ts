@@ -70,6 +70,7 @@ export class Tab1Page implements OnInit {
       }
     );
     this.dadosService.guardarDados('generos',this.generos);
+    this.listar();
   }
 
   buscarFilmes(evento: any) {
@@ -81,8 +82,18 @@ export class Tab1Page implements OnInit {
           this.listaFilmes = dados;
         }
       );
+    }else{
+      this.listar();
     }
+  }
 
+  listar(){
+    this.filmeService.listarPopular().subscribe(
+      dados => {
+        console.log(dados);
+        this.listaFilmes = dados;
+      }
+    );
   }
 
   exibirFilme(filme: IFilmeApi) {

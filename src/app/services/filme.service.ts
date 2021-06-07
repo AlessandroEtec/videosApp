@@ -18,7 +18,18 @@ export class FilmeService {
   constructor(private http: HttpClient, private toastController: ToastController) { }
 
   buscarFilmes(busca: string): Observable<IListaFilmes> {
-    const url = `${this.apiURL}search/movie${this.key}&language${this.lingua}&region=${this.regiao}&query=${busca}`;
+    const url = `${this.apiURL}search/movie${this.key}&language=${this.lingua}&region=${this.regiao}&query=${busca}`;
+    return this.http.get<IListaFilmes>(url).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+  }
+
+  listarPopular(){
+    //https://api.themoviedb.org/3/discover/movie?api_key=faaead9cd5fe0ff7b07632e4675a571d
+    const url = `${this.apiURL}discover/movie${this.key}&language=${this.lingua}&region=${this.regiao}`;
+    console.log(url);
+
     return this.http.get<IListaFilmes>(url).pipe(
       map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))

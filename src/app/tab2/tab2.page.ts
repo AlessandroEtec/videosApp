@@ -16,7 +16,7 @@ export class Tab2Page implements OnInit {
 
   listaSeries: IListaSeries;
   generos: string[] = [];
-  titulo: "Séries";
+  titulo = "Séries";
 
   constructor(
     public alertController: AlertController,
@@ -38,6 +38,10 @@ export class Tab2Page implements OnInit {
     );
     this.dadosService.guardarDados('generos', this.generos);
     this.listar();
+  }
+
+  ionViewDidEnter(){
+    this.dadosService.guardarDados("cor", "primary");
   }
 
   filtrar(evento) {

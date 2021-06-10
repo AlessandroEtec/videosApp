@@ -8,7 +8,16 @@ import { Component } from '@angular/core';
 export class TabsPage {
 
   cor = "dark";
-  constructor() {}
+  constructor() { }
 
+  mudar(event) {
+    if (event.tab === "tab1") {
+      this.cor = "dark";
+    } else if (event.tab === "tab2") {
+      this.cor = "primary";
+    } else {
+      this.cor = "laranja";
+    }
+  }
 
 }
